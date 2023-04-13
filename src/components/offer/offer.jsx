@@ -10,8 +10,12 @@ const Offer = ({data, onHover}) => {
     onHover(data);
   };
 
+  const handleMouseLeave = () => {
+    onHover({});
+  };
+
   return (
-    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter}>
+    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {isPremium ? <div className="place-card__mark"><span>Premium</span></div> : ``}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={AppRoute.OFFER + id}>

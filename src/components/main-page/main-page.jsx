@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import OfferList from './offer-list/offer-list';
+import Map from '../map/map';
 
 import AppRoute from '../../utils/const.js';
 
 const MainPage = (props) => {
   const {hotelData, offersCount} = props;
+  const [activeHotel, setData] = useState({});
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -105,10 +108,12 @@ const MainPage = (props) => {
                   {/* </li> */}
                 </ul>
               </form>
-              <OfferList hotelData={hotelData}/>
+              <OfferList hotelData={hotelData} onHover={setData}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"/>
+              <section className="cities__map map">
+                <Map hotelData={hotelData} activeHotel={activeHotel}/>
+              </section>
             </div>
           </div>
         </div>
