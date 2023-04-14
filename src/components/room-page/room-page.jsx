@@ -4,6 +4,7 @@ import AppRoute from '../../utils/const.js';
 import PropTypes from 'prop-types';
 
 import RoomInfo from './room-info/room-info.jsx';
+import Map from '../map/map.jsx';
 
 const RoomImage = (props) => {
   const {image} = props;
@@ -62,7 +63,11 @@ const RoomPage = (props) => {
             <RoomInfo hotelData={currentHotelData}/>
             {/* Информация о комнате */}
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            {/* Карта */}
+            <Map hotelData={hotelData} activeHotel={currentHotelData}/>
+            {/* Карта */}
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
