@@ -38,4 +38,4 @@ ReviewComment.propTypes = {
   user: PropTypes.object,
 };
 
-export default ReviewComment
+export default ReviewComment;
