@@ -71,7 +71,7 @@ const RoomPage = (props) => {
           </div>
           <section className="property__map map">
             {/* Карта */}
-            <Map hotelData={hotelData} activeHotel={currentHotelData}/>
+            <Map hotelData={hotelData.slice(0, 3)} activeHotel={currentHotelData}/>
             {/* Карта */}
           </section>
         </section>

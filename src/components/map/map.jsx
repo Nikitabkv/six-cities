@@ -34,6 +34,25 @@ const Map = ({hotelData, activeHotel}) => {
       const customIcon = leaflet.icon({iconUrl: `./img/pin.svg`, iconSize: [27, 35]});
       const customIconActive = leaflet.icon({iconUrl: `./img/pin-active.svg`, iconSize: [27, 35]});
 
+      // центрируем карту
+      // после выбора нового предложения
+      if (activeHotel.location) {
+        mapRef.current.setView(
+            {
+              lat: activeHotel.location.latitude,
+              lng: activeHotel.location.longitude,
+            },
+        );
+      } else {
+        mapRef.current.setView(
+            {
+              lat: city[0],
+              lng: city[1],
+            },
+        );
+      }
+
+      // подсвечиваем маркер
       leaflet.marker(
           {lat: point.location.latitude, lng: point.location.longitude},
           {icon: point.id === activeHotel.id ? customIconActive : customIcon}).addTo(mapRef.current).bindPopup(point.title);
