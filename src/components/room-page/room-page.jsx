@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Link, Redirect, useParams} from 'react-router-dom';
-import AppRoute from '../../utils/const.js';
+import {APP_ROUTE} from '../../utils/const.js';
 import PropTypes from 'prop-types';
 
 import RoomInfo from './room-info/room-info.jsx';
@@ -21,7 +21,7 @@ const RoomPage = (props) => {
   const {hotelData} = props;
 
   if (id > hotelData.length) {
-    return (<Redirect to={AppRoute.ROOT}/>);
+    return (<Redirect to={APP_ROUTE.ROOT}/>);
   }
 
   const currentHotelData = hotelData[id - 1];
@@ -37,7 +37,7 @@ const RoomPage = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Link to={AppRoute.ROOT} className="header__logo-link header__logo-link--active">
+              <Link to={APP_ROUTE.ROOT} className="header__logo-link header__logo-link--active">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
               </Link>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import AppRoute from '../../utils/const.js';
+import {APP_ROUTE} from '../../utils/const.js';
 
 const Page404 = () => (
   <div className="page page--gray page--favorites-empty">
@@ -8,7 +8,7 @@ const Page404 = () => (
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <Link to={AppRoute.ROOT} className="header__logo-link header__logo-link--active">
+            <Link to={APP_ROUTE.ROOT} className="header__logo-link header__logo-link--active">
               <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
             </Link>
           </div>
@@ -35,7 +35,7 @@ const Page404 = () => (
             <div className="cities__status-wrapper tabs__content">
               <b className="cities__status">404 Not Found</b>
               <p className="cities__status-description">Looks like this page does not exist.</p>
-              <Link to={AppRoute.ROOT}>
+              <Link to={APP_ROUTE.ROOT}>
                 <button>Main Page</button>
               </Link>
             </div>

@@ -2,17 +2,19 @@ import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import 'leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
+import {connect} from 'react-redux';
 
-const city = [52.370216, 4.895168];
+const Map = (props) => {
+  const {city, hotelData, activeHotel} = props;
 
-const Map = ({hotelData, activeHotel}) => {
   const mapRef = useRef();
 
+  // создаем карту
   useEffect(() => {
     mapRef.current = leaflet.map(`map`, {
       center: {
-        lat: city[0],
-        lng: city[1],
+        lat: city.location.latitude,
+        lng: city.location.longitude,
       },
       zoom: 12,
       zoomControl: false,
@@ -27,8 +29,9 @@ const Map = ({hotelData, activeHotel}) => {
     return () => {
       mapRef.current.remove();
     };
-  }, []);
+  }, [city]);
 
+  // Добавляем маркеры
   useEffect(() => {
     hotelData.forEach((point) => {
       const customIcon = leaflet.icon({iconUrl: `./img/pin.svg`, iconSize: [27, 35]});
@@ -46,8 +49,8 @@ const Map = ({hotelData, activeHotel}) => {
       } else {
         mapRef.current.setView(
             {
-              lat: city[0],
-              lng: city[1],
+              lat: city.location.latitude,
+              lng: city.location.longitude,
             },
         );
       }
@@ -57,16 +60,21 @@ const Map = ({hotelData, activeHotel}) => {
           {lat: point.location.latitude, lng: point.location.longitude},
           {icon: point.id === activeHotel.id ? customIconActive : customIcon}).addTo(mapRef.current).bindPopup(point.title);
     });
-  }, [activeHotel]);
+  }, [activeHotel, city]);
 
   return (
     <div id="map" style={{height: `100%`}} ref={mapRef}/>
   );
 };
 
+const mapStateToProps = (state) => {
+  return {city: state.city};
+};
+
 Map.propTypes = {
+  city: PropTypes.object,
   activeHotel: PropTypes.object,
   hotelData: PropTypes.array.isRequired,
 };
 
-export default Map;
+export default connect(mapStateToProps, null)(Map);

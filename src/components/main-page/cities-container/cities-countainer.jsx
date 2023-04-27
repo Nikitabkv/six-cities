@@ -2,16 +2,17 @@ import React, {useState} from 'react';
 import OfferList from '../offer-list/offer-list.jsx';
 import Map from '../../map/map.jsx';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const CitiesCountainer = (props) => {
-  const {hotelData, offersCount} = props;
+  const {currentCity, currentOffers} = props;
   const [activeHotel, setData] = useState({});
 
   return (
     <div className="cities__places-container container">
       <section className="cities__places places">
         <h2 className="visually-hidden">Places</h2>
-        <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+        <b className="places__found">{currentOffers.length} places to stay in {currentCity}</b>
         <form className="places__sorting" action="#" method="get">
           <span className="places__sorting-caption">Sort by</span>
           <span className="places__sorting-type" tabIndex={0}>
@@ -35,20 +36,28 @@ const CitiesCountainer = (props) => {
             {/* </li> */}
           </ul>
         </form>
-        <OfferList hotelData={hotelData} onHover={setData}/>
+        <OfferList currentOffers={currentOffers} onHover={setData}/>
       </section>
       <div className="cities__right-section">
         <section className="cities__map map">
-          <Map hotelData={hotelData} activeHotel={activeHotel}/>
+          <Map hotelData={currentOffers} activeHotel={activeHotel}/>
         </section>
       </div>
     </div>
   );
 };
 
-CitiesCountainer.propTypes = {
-  offersCount: PropTypes.number.isRequired,
-  hotelData: PropTypes.array.isRequired,
+const mapStateToProps = (state) => {
+  return {
+    currentOffers: state.offers,
+    currentCity: state.city.name,
+  };
 };
 
-export default CitiesCountainer;
+CitiesCountainer.propTypes = {
+  currentOffers: PropTypes.array,
+  hotelData: PropTypes.array,
+  currentCity: PropTypes.string,
+};
+
+export default connect(mapStateToProps, null)(CitiesCountainer);

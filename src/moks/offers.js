@@ -3,8 +3,8 @@ export const hotelData = [
     "bedrooms": 2,
     "city": {
       "location": {
-        "latitude": 52.370216,
-        "longitude": 4.895168,
+        "latitude": 48.856663,
+        "longitude": 2.351556,
         "zoom": 10
       },
       "name": `Paris`
@@ -22,8 +22,8 @@ export const hotelData = [
     "isFavorite": false,
     "isPremium": true,
     "location": {
-      "latitude": 52.3909553943508,
-      "longitude": 4.85309666406198,
+      "latitude": 48.856663,
+      "longitude": 2.351556,
       "zoom": 8
     },
     "maxAdults": 3,
@@ -139,11 +139,11 @@ export const hotelData = [
     "bedrooms": 4,
     "city": {
       "location": {
-        "latitude": 52.370216,
-        "longitude": 4.895168,
+        "latitude": 50.930779,
+        "longitude": 6.938399,
         "zoom": 10
       },
-      "name": `Amsterdam`
+      "name": `Cologne`
     },
     "description": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     "goods": [`Heating`, `Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
@@ -158,8 +158,8 @@ export const hotelData = [
     "isFavorite": true,
     "isPremium": false,
     "location": {
-      "latitude": 52.416302,
-      "longitude": 4.877967,
+      "latitude": 50.930779,
+      "longitude": 6.938399,
       "zoom": 8
     },
     "maxAdults": 4,

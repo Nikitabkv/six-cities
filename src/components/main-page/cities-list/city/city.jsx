@@ -8,9 +8,9 @@ const City = (props) => {
   const {city, currentCity, onClickCity} = props;
 
   return (
-    <li className="locations__item">
-      <a className={`locations__item-link tabs__item ${city === currentCity ? `tabs__item--active` : ``}`}>
-        <span onClick={onClickCity}>{city}</span>
+    <li className="locations__item" onClick={onClickCity}>
+      <a className={`locations__item-link tabs__item ${city === currentCity.name ? `tabs__item--active` : ``}`}>
+        <span>{city}</span>
       </a>
     </li>
   );
@@ -18,7 +18,7 @@ const City = (props) => {
 
 City.propTypes = {
   onClickCity: PropTypes.func,
-  currentCity: PropTypes.string,
+  currentCity: PropTypes.object,
   currentOffers: PropTypes.array,
   city: PropTypes.string,
 };

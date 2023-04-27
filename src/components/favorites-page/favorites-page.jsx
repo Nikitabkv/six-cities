@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import AppRoute from '../../utils/const.js';
+import {APP_ROUTE} from '../../utils/const.js';
 import FavoritesOffer from './favorites-offer/favorites-offer.jsx';
 
 const FavoritesPage = (props) => {
@@ -14,7 +14,7 @@ const FavoritesPage = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Link to={AppRoute.ROOT} className="header__logo-link">
+              <Link to={APP_ROUTE.ROOT} className="header__logo-link">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
               </Link>
             </div>

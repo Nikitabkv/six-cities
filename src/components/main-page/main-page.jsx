@@ -2,11 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import AppRoute from '../../utils/const.js';
+import {APP_ROUTE} from '../../utils/const.js';
 import CitiesCountainer from './cities-container/cities-countainer.jsx';
 import CitiesList from './cities-list/cities-list.jsx';
 
-const MainPage = ({hotelData, offersCount}) => {
+const MainPage = ({hotelData}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -14,7 +14,7 @@ const MainPage = ({hotelData, offersCount}) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Link to={AppRoute.ROOT} className="header__logo-link header__logo-link--active">
+              <Link to={APP_ROUTE.ROOT} className="header__logo-link header__logo-link--active">
                 <img
                   className="header__logo"
                   src="img/logo.svg"
@@ -47,7 +47,7 @@ const MainPage = ({hotelData, offersCount}) => {
           </section>
         </div>
         <div className="cities">
-          <CitiesCountainer offersCount={offersCount} hotelData={hotelData} />
+          <CitiesCountainer hotelData={hotelData} />
         </div>
       </main>
     </div>
@@ -55,7 +55,6 @@ const MainPage = ({hotelData, offersCount}) => {
 };
 
 MainPage.propTypes = {
-  offersCount: PropTypes.number.isRequired,
   hotelData: PropTypes.array.isRequired,
 };
 

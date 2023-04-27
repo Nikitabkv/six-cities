@@ -8,23 +8,23 @@ import FavoritesPage from '../favorites-page/favorites-page.jsx';
 import LoginPage from '../login-page/login-page.jsx';
 import Page404 from '../404-page/404-page.jsx';
 
-import appRoute from '../../utils/const.js';
+import {APP_ROUTE} from '../../utils/const.js';
 
 const App = (props) => {
-  const {hotelData, offersCount} = props;
+  const {hotelData} = props;
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={appRoute.ROOT} exact>
-          <MainPage hotelData={hotelData} offersCount={offersCount}/>
+        <Route path={APP_ROUTE.ROOT} exact>
+          <MainPage hotelData={hotelData}/>
         </Route>
-        <Route path={appRoute.OFFER + `:id?`} exact>
+        <Route path={APP_ROUTE.OFFER + `:id?`} exact>
           <RoomPage hotelData={hotelData} />
         </Route>
-        <Route path={appRoute.FAVORITES} exact>
+        <Route path={APP_ROUTE.FAVORITES} exact>
           <FavoritesPage hotelData={hotelData}/>
         </Route>
-        <Route path={appRoute.LOGIN} exact>
+        <Route path={APP_ROUTE.LOGIN} exact>
           <LoginPage />
         </Route>
         <Route>
@@ -36,7 +36,6 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offersCount: PropTypes.number.isRequired,
   hotelData: PropTypes.array.isRequired,
 };
 

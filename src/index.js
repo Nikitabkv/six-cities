@@ -8,7 +8,7 @@ import reducer from './store/reducer.js';
 import App from './components/app/app';
 
 import {hotelData} from './moks/offers.js';
-const offersCount = 275;
+
 const store = createStore(
     reducer,
     composeWithDevTools()
@@ -18,7 +18,6 @@ ReactDOM.render(
     <Provider store={store}>
       <App
         hotelData={hotelData}
-        offersCount={offersCount}
       />
     </Provider>,
     document.querySelector(`#root`)

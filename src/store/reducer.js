@@ -4,9 +4,16 @@ import {
   CHANGE_SORT
 } from './action-types.js';
 import {getHotelData} from '../moks/offers.js';
+import {getCityData} from '../utils/utils.js';
 
 const initialState = {
-  city: `Paris`,
+  city: {
+    "name": `Paris`,
+    "location": {
+      "latitude": 48.856663,
+      "longitude": 2.351556,
+    }
+  },
   offers: getHotelData(`Paris`),
   sort: `popular`,
 };
@@ -16,7 +23,7 @@ const updateStore = (state = initialState, action) => {
     case CHANGE_CITY:
       return {
         ...state,
-        city: action.payload,
+        city: getCityData(action.payload),
       };
     case CHANGE_OFFERS:
       return {
