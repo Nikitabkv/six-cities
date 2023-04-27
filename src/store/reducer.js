@@ -3,10 +3,11 @@ import {
   CHANGE_OFFERS,
   CHANGE_SORT
 } from './action-types.js';
+import {getHotelData} from '../moks/offers.js';
 
 const initialState = {
-  city: `Amsterdam`,
-  offers: {},
+  city: `Paris`,
+  offers: getHotelData(`Paris`),
   sort: `popular`,
 };
 
