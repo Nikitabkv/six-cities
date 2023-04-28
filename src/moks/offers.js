@@ -1,3 +1,5 @@
+import {sortByPriceHigh, sortByPriceLow, sortByRating} from '../utils/utils.js';
+
 export const hotelData = [
   {
     "bedrooms": 2,
@@ -130,7 +132,7 @@ export const hotelData = [
     },
     "maxAdults": 4,
     "previewImage": `img/apartment-03.jpg`,
-    "price": 140,
+    "price": 115,
     "rating": 5,
     "title": `Good room for party with some med`,
     "type": `Private house`
@@ -198,14 +200,23 @@ export const commentData = [
   }
 ];
 
-export const getHotelData = (currentCity) => {
+export const getHotelData = (currentCity, sortType) => {
   const currentOffers = [];
 
   hotelData.map((hotel) => {
-    if (currentCity === hotel.city.name) {
+    if (currentCity.name === hotel.city.name) {
       currentOffers.push(hotel);
     }
   });
 
-  return currentOffers;
+  switch (sortType) {
+    case `LowToHigh`:
+      return currentOffers.sort(sortByPriceLow);
+    case `HighToLow`:
+      return currentOffers.sort(sortByPriceHigh);
+    case `Rating`:
+      return currentOffers.sort(sortByRating);
+    default:
+      return currentOffers;
+  }
 };

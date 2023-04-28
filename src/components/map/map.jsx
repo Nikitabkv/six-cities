@@ -39,21 +39,24 @@ const Map = (props) => {
 
       // центрируем карту
       // после выбора нового предложения
-      if (activeHotel.location) {
-        mapRef.current.setView(
-            {
-              lat: activeHotel.location.latitude,
-              lng: activeHotel.location.longitude,
-            },
-        );
-      } else {
-        mapRef.current.setView(
-            {
-              lat: city.location.latitude,
-              lng: city.location.longitude,
-            },
-        );
-      }
+      // отключил, потому что смысла особо нет
+      //
+      //
+      // if (activeHotel.location) {
+      //   mapRef.current.setView(
+      //       {
+      //         lat: activeHotel.location.latitude,
+      //         lng: activeHotel.location.longitude,
+      //       },
+      //   );
+      // } else {
+      //   mapRef.current.setView(
+      //       {
+      //         lat: city.location.latitude,
+      //         lng: city.location.longitude,
+      //       },
+      //   );
+      // }
 
       // подсвечиваем маркер
       leaflet.marker(

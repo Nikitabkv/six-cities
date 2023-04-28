@@ -18,4 +18,16 @@ const getCityData = (city) => {
   return cityData;
 };
 
-export {getCityData};
+const sortByPriceHigh = (a, b) => {
+  return b.price - a.price;
+};
+
+const sortByPriceLow = (a, b) => {
+  return a.price - b.price;
+};
+
+const sortByRating = (a, b) => {
+  return b.rating - a.rating;
+};
+
+export {getCityData, sortByPriceHigh, sortByRating, sortByPriceLow};

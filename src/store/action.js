@@ -8,8 +8,8 @@ const changeCity = (value) => (
   {type: CHANGE_CITY, payload: value}
 );
 
-const changeOffers = (value) => (
-  {type: CHANGE_OFFERS, payload: value}
+const changeOffers = () => (
+  {type: CHANGE_OFFERS}
 );
 
 const changeSort = (value) => (

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {getHotelData} from '../../../../moks/offers.js';
 import {changeCity, changeOffers} from '../../../../store/action.js';
 
 const City = (props) => {
@@ -26,7 +25,7 @@ City.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   onClickCity(evt) {
     dispatch(changeCity(evt.target.innerText));
-    dispatch(changeOffers(getHotelData(evt.target.innerText)));
+    dispatch(changeOffers());
   },
 });
 

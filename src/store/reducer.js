@@ -14,8 +14,14 @@ const initialState = {
       "longitude": 2.351556,
     }
   },
-  offers: getHotelData(`Paris`),
-  sort: `popular`,
+  offers: getHotelData({
+    "name": `Paris`,
+    "location": {
+      "latitude": 48.856663,
+      "longitude": 2.351556,
+    }
+  }, `Popular`),
+  sort: `HighToLow`,
 };
 
 const updateStore = (state = initialState, action) => {
@@ -28,7 +34,7 @@ const updateStore = (state = initialState, action) => {
     case CHANGE_OFFERS:
       return {
         ...state,
-        offers: action.payload,
+        offers: getHotelData(state.city, state.sort),
       };
     case CHANGE_SORT:
       return {
@@ -37,7 +43,7 @@ const updateStore = (state = initialState, action) => {
       };
     default:
       return {
-        ...initialState,
+        ...state,
       };
   }
 };
